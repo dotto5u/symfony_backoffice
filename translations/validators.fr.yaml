@@ -1,0 +1,13 @@
+Invalid credentials.: Email ou mot de passe incorrect
+User account is disabled.: Le compte utilisateur est désactivé
+User account is locked.: Le compte utilisateur est verrouillé
+
+register:
+  lastname.not_blank: "Veuillez entrer votre nom"
+  lastname.min_length: "Votre nom doit contenir au moins {{ limit }} caractères"
+  firstname.not_blank: "Veuillez entrer votre prénom"
+  firstname.min_length: "Votre prénom doit contenir au moins {{ limit }} caractères"
+  email.not_blank: "Veuillez entrer une adresse e-mail"
+  email.already_exists: "Il y'a déjà un utilisateur avec cette email"
+  password.not_blank: "Veuillez entrer un mot de passe"
+  password.min_length: "Votre mot de passe doit contenir au moins {{ limit }} caractères"

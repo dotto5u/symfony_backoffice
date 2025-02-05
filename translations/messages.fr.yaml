@@ -1,0 +1,21 @@
+login:
+  title: "Connexion"
+  email_label: "Email"
+  password_label: "Mot de passe"
+  submit_button: "Se connecter"
+  no_account: "Pas de compte ?"
+  register_here: "Inscrivez-vous"
+
+register:
+  title: "Inscription"
+  lastname_label: "Nom"
+  lastname_placeholder: "Entrez votre nom"
+  firstname_label: "Prénom"
+  firstname_placeholder: "Entrez votre prénom"
+  email_label: "Email"
+  email_placeholder: "Entrez votre adresse e-mail"
+  password_label: "Mot de passe"
+  password_placeholder: "Entrez un mot de passe"
+  submit_button: "S'inscrire"
+  already_registered: "Déjà inscrit ?"
+  login_here: "Connectez-vous"

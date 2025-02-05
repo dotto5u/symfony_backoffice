@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'register.title'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="min-h-screen flex items-center justify-center bg-gray-100">
+        <form method="post" class="bg-white p-6 rounded-lg shadow-md w-full max-w-sm">
+            <h1 class="text-lg font-semibold text-gray-700 mb-6 text-center">{{ 'register.title'|trans }}</h1>
+
+            {{ form_start(registrationForm, {'attr': {'class': 'space-y-4'}}) }}
+                <div class="mb-4">
+                    {{ form_label(registrationForm.lastname, null, {'label_attr': {'class': 'block text-gray-600 mb-1'}}) }}
+                    {{ form_widget(registrationForm.lastname, {'attr': {'class': 'w-full p-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200'}}) }}
+                    <div class="text-red-600 rounded mt-2 text-sm">
+                        {{ form_errors(registrationForm.lastname) }}
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    {{ form_label(registrationForm.firstname, null, {'label_attr': {'class': 'block text-gray-600 mb-1'}}) }}
+                    {{ form_widget(registrationForm.firstname, {'attr': {'class': 'w-full p-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200'}}) }}
+                    <div class="text-red-600 rounded mt-2 text-sm">
+                        {{ form_errors(registrationForm.firstname) }}
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    {{ form_label(registrationForm.email, null, {'label_attr': {'class': 'block text-gray-600 mb-1'}}) }}
+                    {{ form_widget(registrationForm.email, {'attr': {'class': 'w-full p-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200'}}) }}
+                    <div class="text-red-600 rounded mt-2 text-sm">
+                        {{ form_errors(registrationForm.email) }}
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    {{ form_label(registrationForm.password, null, {'label_attr': {'class': 'block text-gray-600 mb-1'}}) }}
+                    {{ form_widget(registrationForm.password, {'attr': {'class': 'w-full p-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200'}}) }}
+                    <div class="text-red-600 rounded mt-2 text-sm">
+                        {{ form_errors(registrationForm.password) }}
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 focus:ring focus:ring-blue-200">
+                    {{ 'register.submit_button'|trans }}
+                </button>
+
+                 <div class="text-center mt-3 text-sm text-gray-600">
+                    <p>{{ 'register.already_registered'|trans }} <a href="{{ path('app_login') }}" class="text-blue-600 hover:underline">{{ 'register.login_here'|trans }}</a></p>
+                </div>
+            {{ form_end(registrationForm) }}
+        </form>
+    </div>
+{% endblock %}
