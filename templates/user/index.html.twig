@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'user.users'|trans }}{% endblock %}
+
+{% block main %}
+    <div class="min-h-screen p-6">
+        <div class="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
+            <h1 class="text-2xl font-semibold text-gray-700 mb-6">{{ 'user.list'|trans }}</h1>
+
+            <div class="overflow-x-auto">
+                <table class="w-full table-auto border-collapse border border-gray-200">
+                    <thead>
+                        <tr class="bg-gray-100 text-left text-sm text-gray-600">
+                            <th class="p-4 border border-gray-200">{{ 'user.email'|trans }}</th>
+                            <th class="p-4 border border-gray-200">{{ 'user.roles'|trans }}</th>
+                            <th class="p-4 border border-gray-200">{{ 'user.lastname'|trans }}</th>
+                            <th class="p-4 border border-gray-200">{{ 'user.firstname'|trans }}</th>
+                            <th class="p-4 border border-gray-200">{{ 'actions'|trans }}</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        {% for user in users %}
+                            <tr class="text-sm text-gray-700 hover:bg-gray-50">
+                                <td class="p-4">{{ user.email }}</td>
+                                <td class="p-4">
+                                    {% for role in user.roles %}
+                                        {{ role|lower|trans }}{% if not loop.last %}, {% endif %}
+                                    {% endfor %}
+                                </td>
+                                <td class="p-4">{{ user.lastname }}</td>
+                                <td class="p-4">{{ user.firstname }}</td>
+                                <td class="p-4">
+                                    <a href="{{ path('app_user_show', {'id': user.id}) }}" class="text-blue-600 hover:underline">{{ 'show'|trans }}</a>
+                                    <a href="{{ path('app_user_edit', {'id': user.id}) }}" class="text-blue-600 hover:underline ml-2">{{ 'edit'|trans }}</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="5" class="p-4 text-center text-gray-500">{{ 'no_records_found'|trans }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-6">
+                <a href="{{ path('app_user_new') }}" class="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700">
+                    {{ 'new'|trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

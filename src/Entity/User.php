@@ -104,6 +104,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function getFullname(): string
+    {
+        $firstname = $this->firstname;
+        $lastname = strtoupper($this->lastname);
+
+        return "$firstname $lastname";
+    }
+
     /**
      * @see UserInterface
      *
@@ -112,7 +120,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
-        $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }
