@@ -1,0 +1,32 @@
+<aside class="hidden fixed left-0 top-0 w-64 h-full bg-white text-gray-600 flex-col lg:flex">
+    <div class="p-6">
+        <h2 class="text-2xl font-semibold text-gray-600">{{ 'backoffice'|trans }}</h2>
+    </div>
+    
+    <div class="mt-6">
+        {% include 'partials/_links.html.twig' %}
+    </div>
+</aside>
+
+<nav x-data="{ open: false }" class="relative lg:hidden">
+    <div class="relative z-20 w-full h-20 px-8 py-6 flex items-center justify-between shadow-md bg-white">
+        <h2 class="text-2xl font-semibold text-gray-600">{{ 'backoffice'|trans }}</h2>
+
+        <div class="flex items-center">
+            <button @click="open = !open" class="text-gray-600 focus:outline-none">
+                <template x-if="!open">
+                    {{ ux_icon('ion:menu', { class: 'w-7 h-7' }) }}
+                </template>
+                <template x-if="open">
+                    {{ ux_icon('ion:close', { class: 'w-7 h-7' }) }}
+                </template>
+            </button>
+        </div>
+    </div>
+
+    <div x-show="open" x-transition class="absolute top-20 left-0 w-full bg-white shadow-md">
+        <div class="m-2">
+            {% include 'partials/_links.html.twig' %}
+        </div>
+    </div>
+</nav>

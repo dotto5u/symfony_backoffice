@@ -5,6 +5,9 @@ export const content = [
 ];
 export const theme = {
   extend: {
+    screens: {
+      'xs': '396px',
+    },
     colors: {
       'success-light': '#A8D5BA',
       'success-dark': '#2E7D32',

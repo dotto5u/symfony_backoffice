@@ -49,5 +49,6 @@ delete: "Supprimer"
 back: "Retour à la liste"
 
 welcome: "Bienvenue"
+backoffice: "Backoffice"
 actions: "Actions"
 no_records_found: "Aucun enregistrement trouvé"

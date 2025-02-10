@@ -2,12 +2,16 @@
 
 {% block title %}{{ 'details'|trans }}{% endblock %}
 
+{% block nav %}
+    {% include 'partials/_sidebar.html.twig' %}
+{% endblock %}
+
 {% block main %}
-    <div class="min-h-screen bg-gray-100 p-6">
-        <div class="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
+    <div class="my-20 lg:my-40 lg:ml-64 px-4">
+        <div class="w-full max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
             <h1 class="text-2xl font-semibold text-gray-700 mb-6">{{ 'user.details'|trans({ '%fullname%': user.fullname }) }}</h1>
 
-            <table class="w-full table-auto border-collapse border border-gray-200">
+            <table class="w-full table-auto border-collapse border border-gray-200 mb-4">
                 <tbody class="divide-y divide-gray-200">
                     <tr class="text-sm text-gray-700 hover:bg-gray-50">
                         <th class="p-4 border border-gray-200 bg-gray-100 text-left text-sm text-gray-600">{{ 'user.email'|trans }}</th>
@@ -32,8 +36,8 @@
                 </tbody>
             </table>
 
-            <div class="mt-6">
-                <a href="{{ path('app_user_edit', {'id': user.id}) }}" class="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 focus:ring focus:ring-blue-200 mr-2">
+            <div class="flex flex-wrap gap-3 text-center">
+                <a href="{{ path('app_user_edit', {'id': user.id}) }}" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:ring focus:ring-blue-200">
                     {{ 'edit'|trans }}
                 </a>
 

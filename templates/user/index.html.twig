@@ -2,9 +2,13 @@
 
 {% block title %}{{ 'user.users'|trans }}{% endblock %}
 
+{% block nav %}
+    {% include 'partials/_sidebar.html.twig' %}
+{% endblock %}
+
 {% block main %}
-    <div class="min-h-screen p-6">
-        <div class="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
+    <div class="my-20 lg:my-40 lg:ml-64 px-4">
+        <div class="w-full max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
             <h1 class="text-2xl font-semibold text-gray-700 mb-6">{{ 'user.list'|trans }}</h1>
 
             <div class="overflow-x-auto">
@@ -29,9 +33,9 @@
                                 </td>
                                 <td class="p-4">{{ user.lastname }}</td>
                                 <td class="p-4">{{ user.firstname }}</td>
-                                <td class="p-4">
-                                    <a href="{{ path('app_user_show', {'id': user.id}) }}" class="text-blue-600 hover:underline">{{ 'show'|trans }}</a>
-                                    <a href="{{ path('app_user_edit', {'id': user.id}) }}" class="text-blue-600 hover:underline ml-2">{{ 'edit'|trans }}</a>
+                                <td class="flex flex-wrap justify-center gap-2 p-4 md:justify-start">
+                                    <a href="{{ path('app_user_show', { 'id': user.id }) }}" class="text-blue-600 hover:underline">{{ 'show'|trans }}</a>
+                                    <a href="{{ path('app_user_edit', { 'id': user.id }) }}" class="text-blue-600 hover:underline ml-2">{{ 'edit'|trans }}</a>
                                 </td>
                             </tr>
                         {% else %}

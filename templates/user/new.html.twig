@@ -2,6 +2,10 @@
 
 {% block title %}{{ 'add'|trans  }}{% endblock %}
 
+{% block nav %}
+    {% include 'partials/_sidebar.html.twig' %}
+{% endblock %}
+
 {% block main %}
     {{ include('user/_form.html.twig') }}
 {% endblock %}
