@@ -38,12 +38,6 @@ class UserFormType extends AbstractType
                 'placeholder' => 'register.email_placeholder'
             ]
         ])
-        ->add('password', PasswordType::class, [
-            'label' => 'register.password_label',
-            'attr' => [
-                'placeholder' => 'register.password_placeholder'
-            ]
-        ])
         ->add('roles', ChoiceType::class, [
             'label' => 'register.roles_label',
             'choices' => [
@@ -65,6 +59,15 @@ class UserFormType extends AbstractType
                 return [$role];
             }
         ));
+
+        if (!$isEdit) {
+            $builder->add('password', PasswordType::class, [
+                'label' => 'register.password_label',
+                'attr' => [
+                    'placeholder' => 'register.password_placeholder'
+                ]
+            ]);
+        }        
     }
 
     public function configureOptions(OptionsResolver $resolver): void

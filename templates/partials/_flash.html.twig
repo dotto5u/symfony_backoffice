@@ -1,5 +1,10 @@
-<div class="min-w-[200px] mx-2 mb-4 p-4 flex items-center justify-between rounded-lg shadow-lg text-fcp-blue-dark bg-{{ type }}-light transition transform duration-300 ease-out opacity-0 translate-x-full animate-slide-in">
+<div x-data class="min-w-[200px] mx-2 mb-4 p-4 flex items-center justify-between rounded-lg shadow-lg text-fcp-blue-dark bg-{{ type }}-light transition transform duration-300 ease-out opacity-0 translate-x-full animate-slide-in">
     <div class="flex items-center gap-2 mr-10">
-        <span>{{ message|trans }}</span>
+        {{ ux_icon('mdi:' ~ type ~ '', { class: 'w-5 h-5' }) }}
+        <span>{{ message | trans }}</span>
     </div>
+
+    <span @click="$el.parentNode.remove()" class="cursor-pointer">
+        {{ ux_icon('ion:close', { class: 'w-5 h-5' }) }}
+    </span>
 </div>

@@ -1,11 +1,27 @@
 <ul class="flex flex-col gap-y-2 bg-white text-gray-600">
-    <li class="block px-6 py-2 hover:bg-gray-50 hover:text-gray-800">
-        <a href="#">Utilisateurs</a>
+    {% if is_granted('USER_MANAGE') %}
+        <li>
+            <a href="{{ path('app_user_index') }}" class="block px-6 py-2 hover:bg-gray-50 hover:text-gray-800">{{ 'nav.users'|trans }}</a>
+        </li>
+    {% endif %}
+
+    <li>
+        <a href="#" class="block px-6 py-2 hover:bg-gray-50 hover:text-gray-800">{{ 'nav.products'|trans }}</a>
     </li>
-    <li class="block px-6 py-2 hover:bg-gray-50 hover:text-gray-800">
-        <a href="#">Produits</a>
-    </li>
-    <li class="block px-6 py-2 hover:bg-gray-50 hover:text-gray-800">
-        <a href="#">Clients</a>
+
+    {% if true %}
+        <li>
+            <a href="#" class="block px-6 py-2 hover:bg-gray-50 hover:text-gray-800">{{ 'nav.clients'|trans }}</a>
+        </li>
+    {% endif %}
+
+    <hr class="my-1 border-gray-200">
+
+    <li>
+        {% if app.user %}
+            <a href="{{ path('app_logout') }}" class="block px-6 py-2 hover:bg-gray-50 hover:text-gray-800">{{ 'nav.logout'|trans }}</a>
+        {% else %}
+            <a href="{{ path('app_login') }}" class="block px-6 py-2 hover:bg-gray-50 hover:text-gray-800">{{ 'nav.login'|trans }}</a>
+        {% endif %}
     </li>
 </ul>

@@ -24,13 +24,14 @@
 
         <footer class="relative">
             {% block footer %}{% endblock %}
-                <div class="fixed z-50 right-0 bottom-0 flex flex-row-reverse gap-1 overflow-hidden">
-                    {% for type, messages in app.flashes %}
-                        {% for message in messages %}
-                            {% include 'partials/_flash.html.twig' with { message: message, type: type } %}
-                        {% endfor %}
+
+            <div class="fixed z-50 right-0 bottom-0 flex flex-row-reverse gap-1 overflow-hidden">
+                {% for type, messages in app.flashes %}
+                    {% for message in messages %}
+                        {% include 'partials/_flash.html.twig' with { message: message, type: type } %}
                     {% endfor %}
-                </div>
+                {% endfor %}
+            </div>
         </footer>
     </body>
 </html>

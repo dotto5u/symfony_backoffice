@@ -29,13 +29,15 @@
                 </div>
             </div>
 
-            <div class="mb-4">
-                {{ form_label(form.password, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-600 mb-2'}}) }}
-                {{ form_widget(form.password, {'attr': {'class': 'w-full p-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200'}}) }}
-                <div class="text-sm text-red-500 mt-1">
-                    {{ form_errors(form.password) }}
+            {% if form.password is defined %}
+                <div class="mb-4">
+                    {{ form_label(form.password, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-600 mb-2'}}) }}
+                    {{ form_widget(form.password, {'attr': {'class': 'w-full p-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200'}}) }}
+                    <div class="text-sm text-red-500 mt-1">
+                        {{ form_errors(form.password) }}
+                    </div>
                 </div>
-            </div>
+            {% endif %}
 
             <div class="mb-4">
                 {{ form_label(form.roles, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-600 mb-2'}}) }}
