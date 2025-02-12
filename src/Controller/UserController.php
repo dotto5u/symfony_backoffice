@@ -19,10 +19,10 @@ final class UserController extends AbstractController
     #[Route(name: 'app_user_index', methods: ['GET'])]
     public function index(UserRepository $userRepository): Response
     {   
-        if (!$this->isGranted(UserVoter::MANAGE)) {
+        if (!$this->isGranted(UserVoter::INDEX)) {
             $this->addFlash('error', 'user.access_denied_index');
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('user/index.html.twig', [
@@ -33,7 +33,7 @@ final class UserController extends AbstractController
     #[Route('/new', name: 'app_user_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasherInterface): Response
     {   
-        if (!$this->isGranted(UserVoter::MANAGE)) {
+        if (!$this->isGranted(UserVoter::NEW)) {
             $this->addFlash('error', 'user.access_denied_new');
 
             return $this->redirectToRoute('app_user_index');
@@ -65,7 +65,7 @@ final class UserController extends AbstractController
     #[Route('/{id}/show', name: 'app_user_show', methods: ['GET'])]
     public function show(User $user): Response
     {   
-        if (!$this->isGranted(UserVoter::MANAGE)) {
+        if (!$this->isGranted(UserVoter::SHOW)) {
             $this->addFlash('error', 'user.access_denied_show');
 
             return $this->redirectToRoute('app_user_index');
@@ -79,7 +79,7 @@ final class UserController extends AbstractController
     #[Route('/{id}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {       
-        if (!$this->isGranted(UserVoter::MANAGE)) {
+        if (!$this->isGranted(UserVoter::EDIT)) {
             $this->addFlash('error', 'user.access_denied_edit');
 
             return $this->redirectToRoute('app_user_index');
@@ -107,7 +107,7 @@ final class UserController extends AbstractController
     #[Route('/{id}/delete', name: 'app_user_delete')]
     public function delete(User $user, EntityManagerInterface $entityManager): Response
     {   
-        if (!$this->isGranted(UserVoter::MANAGE)) {
+        if (!$this->isGranted(UserVoter::DELETE)) {
             $this->addFlash('error', 'user.access_denied_delete');
 
             return $this->redirectToRoute('app_user_index');

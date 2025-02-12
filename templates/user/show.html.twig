@@ -29,7 +29,7 @@
                         <th class="p-4 border border-gray-200 bg-gray-100 text-left text-sm text-gray-600">{{ 'user.roles'|trans }}</th>
                         <td class="p-4 border border-gray-200">
                             {% for role in user.roles %}
-                                {{ role|lower|trans }}{% if not loop.last %}, {% endif %}
+                                {{ ('user.' ~ role)|lower|trans }}{% if not loop.last %}, {% endif %}
                             {% endfor %}
                         </td>
                     </tr>

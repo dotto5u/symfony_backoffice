@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'edit'|trans  }}{% endblock %}
+{% block title %}{{ 'add'|trans  }}{% endblock %}
 
 {% block nav %}
     {% include 'partials/_sidebar.html.twig' %}
 {% endblock %}
 
 {% block main %}
-    {{ include('user/_form.html.twig') }}
+    {{ include('product/_form.html.twig') }}
 {% endblock %}

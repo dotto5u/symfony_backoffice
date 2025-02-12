@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'user.users'|trans }}{% endblock %}
+{% block title %}{{ 'nav.users'|trans }}{% endblock %}
 
 {% block nav %}
     {% include 'partials/_sidebar.html.twig' %}
@@ -28,7 +28,7 @@
                                 <td class="p-4">{{ user.email }}</td>
                                 <td class="p-4">
                                     {% for role in user.roles %}
-                                        {{ role|lower|trans }}{% if not loop.last %}, {% endif %}
+                                        {{ ('user.' ~ role)|lower|trans }}{% if not loop.last %}, {% endif %}
                                     {% endfor %}
                                 </td>
                                 <td class="p-4">{{ user.lastname }}</td>

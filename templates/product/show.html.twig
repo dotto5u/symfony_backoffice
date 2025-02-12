@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'details'|trans }}{% endblock %}
+
+{% block nav %}
+    {% include 'partials/_sidebar.html.twig' %}
+{% endblock %}
+
+{% block main %}
+    <div class="my-20 lg:my-40 lg:ml-64 px-4">
+        <div class="w-full max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
+            <h1 class="text-2xl font-semibold text-gray-700 mb-6">{{ 'product.details'|trans({ '%name%': product.name }) }}</h1>
+
+            <table class="w-full table-auto border-collapse border border-gray-200 mb-4">
+                <tbody class="divide-y divide-gray-200">
+                    <tr class="text-sm text-gray-700 hover:bg-gray-50">
+                        <th class="p-4 border border-gray-200 bg-gray-100 text-left text-sm text-gray-600">{{ 'product.name_label'|trans }}</th>
+                        <td class="p-4 border border-gray-200">{{ product.name }}</td>
+                    </tr>
+                    <tr class="text-sm text-gray-700 hover:bg-gray-50">
+                        <th class="p-4 border border-gray-200 bg-gray-100 text-left text-sm text-gray-600">{{ 'product.description_label'|trans }}</th>
+                        <td class="p-4 border border-gray-200">{{ product.description }}</td>
+                    </tr>
+                    <tr class="text-sm text-gray-700 hover:bg-gray-50">
+                        <th class="p-4 border border-gray-200 bg-gray-100 text-left text-sm text-gray-600">{{ 'product.price_label'|trans }}</th>
+                        <td class="p-4 border border-gray-200">{{ product.price|number_format(0, ' ', ' ') }} €</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="flex flex-wrap gap-3 text-center">
+                <a href="{{ path('app_product_index') }}" class="bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 focus:ring focus:ring-gray-200">
+                    {{ 'back'|trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

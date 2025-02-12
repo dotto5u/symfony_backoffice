@@ -20,18 +20,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180)]
-    #[Assert\NotBlank(message: 'register.lastname.not_blank')]
-    #[Assert\Email(message: 'register.email.invalid')]
+    #[Assert\NotBlank(message: 'register.email.not_blank')]
+    #[Assert\Length(min: 5, max: 255, minMessage: 'register.email.min_length', maxMessage: 'register.email.max_length')]
+    #[Assert\Email(message: 'register.email.format')]
     private ?string $email = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'register.lastname.not_blank')]
-    #[Assert\Length(min: 2, minMessage: 'register.lastname.min_length')]
+    #[Assert\Length(min: 2, max: 255, minMessage: 'register.lastname.min_length', maxMessage: 'register.lastname.max_length')]
     private ?string $lastname = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'register.firstname.not_blank')]
-    #[Assert\Length(min: 2, minMessage: 'register.firstname.min_length')]
+    #[Assert\Length(min: 2, max: 255, minMessage: 'register.firstname.min_length', maxMessage: 'register.firstname.max_length')]
     private ?string $firstname = null;
 
     /**
@@ -45,7 +46,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     #[Assert\NotBlank(message: 'register.password.not_blank')]
-    #[Assert\Length(min: 6, minMessage: 'register.password.min_length')]
+    #[Assert\Length(min: 6, max: 255, minMessage: 'register.password.min_length', maxMessage: 'register.password.max_length')]
     private ?string $password = null;
 
     public function __construct()
