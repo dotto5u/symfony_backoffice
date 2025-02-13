@@ -29,6 +29,7 @@ class Product
     #[Assert\NotNull(message: 'product.price.not_null')]
     #[Assert\Positive(message: 'product.price.positive')]
     #[Assert\Type(type: 'numeric', message: 'product.price.numeric')]
+    #[Assert\LessThanOrEqual(value: 25000, message: 'product.price.less_than_or_equal')]
     private ?string $price = null;
 
     public function getId(): ?int

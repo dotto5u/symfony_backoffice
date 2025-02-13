@@ -13,10 +13,18 @@ final class ProductVoter extends Voter
     public const SHOW = 'PRODUCT_SHOW';
     public const EDIT = 'PRODUCT_EDIT';
     public const DELETE = 'PRODUCT_DELETE';
+    public const EXPORT = 'PRODUCT_EXPORT';
 
     protected function supports(string $attribute, mixed $subject): bool
     {
-        return in_array($attribute, [self::INDEX, self::NEW, self::SHOW, self::EDIT, self::DELETE]);
+        return in_array($attribute, [
+            self::INDEX, 
+            self::NEW, 
+            self::SHOW, 
+            self::EDIT, 
+            self::DELETE, 
+            self::EXPORT
+        ]);
     }
 
     protected function voteOnAttribute(string $attribute, mixed $subject, TokenInterface $token): bool
@@ -28,7 +36,7 @@ final class ProductVoter extends Voter
         }
 
         return match ($attribute) {
-            self::INDEX, self::SHOW => true,
+            self::INDEX, self::SHOW, self::EXPORT => true,
             self::NEW, self::EDIT, self::DELETE => in_array('ROLE_ADMIN', $user->getRoles(), true),
             default => false,
         };

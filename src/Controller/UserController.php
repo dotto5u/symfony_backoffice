@@ -22,7 +22,7 @@ final class UserController extends AbstractController
         if (!$this->isGranted(UserVoter::INDEX)) {
             $this->addFlash('error', 'user.access_denied_index');
 
-            return $this->redirectToRoute('app_login');
+            return $this->redirectToRoute('app_home');
         }
 
         return $this->render('user/index.html.twig', [
@@ -36,7 +36,7 @@ final class UserController extends AbstractController
         if (!$this->isGranted(UserVoter::NEW)) {
             $this->addFlash('error', 'user.access_denied_new');
 
-            return $this->redirectToRoute('app_user_index');
+            return $this->redirectToRoute('app_home');
         }
 
         $user = new User();
@@ -68,7 +68,7 @@ final class UserController extends AbstractController
         if (!$this->isGranted(UserVoter::SHOW)) {
             $this->addFlash('error', 'user.access_denied_show');
 
-            return $this->redirectToRoute('app_user_index');
+            return $this->redirectToRoute('app_home');
         }
 
         return $this->render('user/show.html.twig', [
@@ -82,7 +82,7 @@ final class UserController extends AbstractController
         if (!$this->isGranted(UserVoter::EDIT)) {
             $this->addFlash('error', 'user.access_denied_edit');
 
-            return $this->redirectToRoute('app_user_index');
+            return $this->redirectToRoute('app_home');
         }
 
         $isEdit = true;
@@ -110,7 +110,7 @@ final class UserController extends AbstractController
         if (!$this->isGranted(UserVoter::DELETE)) {
             $this->addFlash('error', 'user.access_denied_delete');
 
-            return $this->redirectToRoute('app_user_index');
+            return $this->redirectToRoute('app_home');
         }
 
         $entityManager->remove($user);

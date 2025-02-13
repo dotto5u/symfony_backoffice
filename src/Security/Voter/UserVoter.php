@@ -16,7 +16,13 @@ final class UserVoter extends Voter
 
     protected function supports(string $attribute, mixed $subject): bool
     {
-        return in_array($attribute, [self::INDEX, self::NEW, self::SHOW, self::EDIT, self::DELETE]);
+        return in_array($attribute, [
+            self::INDEX, 
+            self::NEW, 
+            self::SHOW, 
+            self::EDIT, 
+            self::DELETE
+        ]);
     }
 
     protected function voteOnAttribute(string $attribute, mixed $subject, TokenInterface $token): bool

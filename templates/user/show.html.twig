@@ -18,20 +18,20 @@
                         <td class="p-4 border border-gray-200">{{ user.email }}</td>
                     </tr>
                     <tr class="text-sm text-gray-700 hover:bg-gray-50">
-                        <th class="p-4 border border-gray-200 bg-gray-100 text-left text-sm text-gray-600">{{ 'user.lastname'|trans }}</th>
-                        <td class="p-4 border border-gray-200">{{ user.lastname }}</td>
-                    </tr>
-                    <tr class="text-sm text-gray-700 hover:bg-gray-50">
-                        <th class="p-4 border border-gray-200 bg-gray-100 text-left text-sm text-gray-600">{{ 'user.firstname'|trans }}</th>
-                        <td class="p-4 border border-gray-200">{{ user.firstname }}</td>
-                    </tr>
-                    <tr class="text-sm text-gray-700 hover:bg-gray-50">
                         <th class="p-4 border border-gray-200 bg-gray-100 text-left text-sm text-gray-600">{{ 'user.roles'|trans }}</th>
                         <td class="p-4 border border-gray-200">
                             {% for role in user.roles %}
                                 {{ ('user.' ~ role)|lower|trans }}{% if not loop.last %}, {% endif %}
                             {% endfor %}
                         </td>
+                    </tr>
+                    <tr class="text-sm text-gray-700 hover:bg-gray-50">
+                        <th class="p-4 border border-gray-200 bg-gray-100 text-left text-sm text-gray-600">{{ 'user.lastname'|trans }}</th>
+                        <td class="p-4 border border-gray-200">{{ user.lastname }}</td>
+                    </tr>
+                    <tr class="text-sm text-gray-700 hover:bg-gray-50">
+                        <th class="p-4 border border-gray-200 bg-gray-100 text-left text-sm text-gray-600">{{ 'user.firstname'|trans }}</th>
+                        <td class="p-4 border border-gray-200">{{ user.firstname }}</td>
                     </tr>
                 </tbody>
             </table>

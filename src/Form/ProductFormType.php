@@ -6,6 +6,7 @@ use App\Entity\Product;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -29,11 +30,12 @@ class ProductFormType extends AbstractType
                     'placeholder' => 'product.description_placeholder'
                 ]
             ])
-            ->add('price', TextType::class, [
+            ->add('price', NumberType::class, [
                 'label' => 'product.price_label',
                 'attr' => [
                     'placeholder' => 'product.price_placeholder'
-                ]
+                ],
+                'invalid_message' => 'product.price.numeric'
             ])
             ->add('submit', SubmitType::class, [
                 'label' => $isEdit ? 'edit' : 'add',

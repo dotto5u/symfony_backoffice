@@ -65,6 +65,7 @@ product:
   price: "Prix"
   add: "Ajouter un produit"
   edit: "Modifier un produit"
+  export: "Exporter"
   name_label: "Nom"
   name_placeholder: "Entrez le nom du produit"
   description_label: "Description"
@@ -79,6 +80,7 @@ product:
   access_denied_show: "Vous n'avez pas les droits nécessaires pour voir un produit"
   access_denied_edit: "Vous n'avez pas les droits nécessaires pour modifier un produit"
   access_denied_delete: "Vous n'avez pas les droits nécessaires pour supprimer un produit"
+  access_denied_export: "Vous n'avez pas les droits nécessaires pour exporter un produit"
 
 edit: "Modifier"
 add: "Ajouter"

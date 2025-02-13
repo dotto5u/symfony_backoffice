@@ -6,6 +6,7 @@ use App\Entity\Product;
 use App\Form\ProductFormType;
 use App\Repository\ProductRepository;
 use App\Security\Voter\ProductVoter;
+use App\Service\CsvService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,11 +22,11 @@ final class ProductController extends AbstractController
         if (!$this->isGranted(ProductVoter::INDEX)) {
             $this->addFlash('error', 'product.access_denied_index');
 
-            return $this->redirectToRoute('app_login');
+            return $this->redirectToRoute('app_home');
         }
 
         return $this->render('product/index.html.twig', [
-            'products' => $productRepository->findAll(),
+            'products' => $productRepository->getByPriceDesc(),
         ]);
     }
 
@@ -35,7 +36,7 @@ final class ProductController extends AbstractController
         if (!$this->isGranted(ProductVoter::NEW)) {
             $this->addFlash('error', 'product.access_denied_new');
 
-            return $this->redirectToRoute('app_product_index');
+            return $this->redirectToRoute('app_home');
         }
 
         $product = new Product();
@@ -65,7 +66,7 @@ final class ProductController extends AbstractController
         if (!$this->isGranted(ProductVoter::SHOW)) {
             $this->addFlash('error', 'product.access_denied_show');
 
-            return $this->redirectToRoute('app_product_index');
+            return $this->redirectToRoute('app_home');
         }
 
         return $this->render('product/show.html.twig', [
@@ -79,7 +80,7 @@ final class ProductController extends AbstractController
         if (!$this->isGranted(ProductVoter::EDIT)) {
             $this->addFlash('error', 'product.access_denied_edit');
 
-            return $this->redirectToRoute('app_product_index');
+            return $this->redirectToRoute('app_home');
         }
 
         $isEdit = true;
@@ -107,7 +108,7 @@ final class ProductController extends AbstractController
         if (!$this->isGranted(ProductVoter::DELETE)) {
             $this->addFlash('error', 'product.access_denied_delete');
 
-            return $this->redirectToRoute('app_product_index');
+            return $this->redirectToRoute('app_home');
         }
 
         $entityManager->remove($product);
@@ -116,5 +117,25 @@ final class ProductController extends AbstractController
         $this->addFlash("success", "product.deleted");
 
         return $this->redirectToRoute('app_product_index');
+    }
+
+    #[Route('/export', name: 'app_product_export')]
+    public function export(ProductRepository $productRepository, CsvService $csvService): Response
+    {
+        if (!$this->isGranted(ProductVoter::EXPORT)) {
+            $this->addFlash('error', 'product.access_denied_export');
+
+            return $this->redirectToRoute('app_home');
+        }
+
+        $products = $productRepository->findAll();
+        $csv = $csvService->exportProducts($products);
+        $filename = "products.csv";
+        
+        $response = new Response($csv);
+        $response->headers->set("Content-Type", "text/csv; charset=utf-8'");
+        $response->headers->set("Content-Disposition", "attachment; filename=$filename");
+
+        return $response;
     }
 }
