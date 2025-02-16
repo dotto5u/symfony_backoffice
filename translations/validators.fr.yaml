@@ -5,22 +5,22 @@ User account is locked.: "Le compte utilisateur est verrouillé"
 register:
   email:
     not_blank: "Veuillez entrer une adresse e-mail"
-    min_length: "Votre email doit contenir au moins {{ limit }} caractères"
-    max_length: "Votre email ne doit pas dépasser {{ limit }} caractères"
+    min_length: "L'email doit contenir au moins {{ limit }} caractères"
+    max_length: "L'email ne doit pas dépasser {{ limit }} caractères"
     format: "L'adresse e-mail doit respecter le format xxx@xxx.xx"
     already_exists: "Il y a déjà un utilisateur avec cet email"
   lastname:
-    not_blank: "Veuillez entrer votre nom"
-    min_length: "Votre nom doit contenir au moins {{ limit }} caractères"
-    max_length: "Votre nom ne doit pas dépasser {{ limit }} caractères"
+    not_blank: "Veuillez entrer un nom"
+    min_length: "Le nom doit contenir au moins {{ limit }} caractères"
+    max_length: "Le nom ne doit pas dépasser {{ limit }} caractères"
   firstname:
-    not_blank: "Veuillez entrer votre prénom"
-    min_length: "Votre prénom doit contenir au moins {{ limit }} caractères"
-    max_length: "Votre prénom ne doit pas dépasser {{ limit }} caractères"
+    not_blank: "Veuillez entrer un prénom"
+    min_length: "Le prénom doit contenir au moins {{ limit }} caractères"
+    max_length: "Le prénom ne doit pas dépasser {{ limit }} caractères"
   password:
     not_blank: "Veuillez entrer un mot de passe"
-    min_length: "Votre mot de passe doit contenir au moins {{ limit }} caractères"
-    max_length: "Votre mot de passe ne doit pas dépasser {{ limit }} caractères"
+    min_length: "Le mot de passe doit contenir au moins {{ limit }} caractères"
+    max_length: "Le mot de passe ne doit pas dépasser {{ limit }} caractères"
 
 product:
   name:
@@ -39,17 +39,17 @@ product:
 
 client:
   firstname:
-    not_blank: "Veuillez entrer votre prénom"
-    min_length: "Votre prénom doit contenir au moins {{ limit }} caractères"
-    max_length: "Votre prénom ne doit pas dépasser {{ limit }} caractères"
+    not_blank: "Veuillez entrer un prénom"
+    min_length: "Le prénom doit contenir au moins {{ limit }} caractères"
+    max_length: "Le prénom ne doit pas dépasser {{ limit }} caractères"
   lastname:
-    not_blank: "Veuillez entrer votre nom"
-    min_length: "Votre nom doit contenir au moins {{ limit }} caractères"
-    max_length: "Votre nom ne doit pas dépasser {{ limit }} caractères"
+    not_blank: "Veuillez entrer un nom"
+    min_length: "Le nom doit contenir au moins {{ limit }} caractères"
+    max_length: "Le nom ne doit pas dépasser {{ limit }} caractères"
   email:
     not_blank: "Veuillez entrer une adresse e-mail"
-    min_length: "Votre e-mail doit contenir au moins {{ limit }} caractères"
-    max_length: "Votre e-mail ne doit pas dépasser {{ limit }} caractères"
+    min_length: "L'e-mail doit contenir au moins {{ limit }} caractères"
+    max_length: "L'e-mail ne doit pas dépasser {{ limit }} caractères"
     format: "L'adresse e-mail doit respecter le format xxx@xxx.xx"
     already_exists: "Il y a déjà un client avec cet e-mail"
   phone_number:
