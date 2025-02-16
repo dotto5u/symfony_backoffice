@@ -3,29 +3,31 @@
         <a href="{{ path('app_home') }}" class="block px-6 py-2 hover:bg-gray-50 hover:text-gray-800">{{ 'nav.home'|trans }}</a>
     </li>
 
+    {% if is_granted('PRODUCT_INDEX') %}
+        <li>
+            <a href="{{ path('app_product_index') }}" class="block px-6 py-2 hover:bg-gray-50 hover:text-gray-800">{{ 'nav.products'|trans }}</a>
+        </li>
+    {% endif %}
+
+    {% if is_granted('CLIENT_INDEX') %}
+        <li>
+            <a href="{{ path('app_client_index') }}" class="block px-6 py-2 hover:bg-gray-50 hover:text-gray-800">{{ 'nav.clients'|trans }}</a>
+        </li>
+    {% endif %}
+
     {% if is_granted('USER_INDEX') %}
         <li>
             <a href="{{ path('app_user_index') }}" class="block px-6 py-2 hover:bg-gray-50 hover:text-gray-800">{{ 'nav.users'|trans }}</a>
         </li>
     {% endif %}
 
-    <li>
-        <a href="{{ path('app_product_index') }}" class="block px-6 py-2 hover:bg-gray-50 hover:text-gray-800">{{ 'nav.products'|trans }}</a>
-    </li>
-
-    {% if false %}
-        <li>
-            <a href="#" class="block px-6 py-2 hover:bg-gray-50 hover:text-gray-800">{{ 'nav.clients'|trans }}</a>
-        </li>
-    {% endif %}
-
     <hr class="my-1 border-gray-200">
 
     <li>
-        {% if app.user %}
-            <a href="{{ path('app_logout') }}" class="block px-6 py-2 hover:bg-gray-50 hover:text-gray-800">{{ 'nav.logout'|trans }}</a>
-        {% else %}
+        {% if is_granted('LOGIN') %}
             <a href="{{ path('app_login') }}" class="block px-6 py-2 hover:bg-gray-50 hover:text-gray-800">{{ 'nav.login'|trans }}</a>
+        {% else %}
+            <a href="{{ path('app_logout') }}" class="block px-6 py-2 hover:bg-gray-50 hover:text-gray-800">{{ 'nav.logout'|trans }}</a>
         {% endif %}
     </li>
 </ul>

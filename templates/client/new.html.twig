@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'add'|trans  }}{% endblock %}
+
+{% block nav %}
+    {% include 'partials/_sidebar.html.twig' %}
+{% endblock %}
+
+{% block main %}
+    {{ include('client/_form.html.twig') }}
+{% endblock %}

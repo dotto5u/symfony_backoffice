@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'nav.clients'|trans }}{% endblock %}
+
+{% block nav %}
+    {% include 'partials/_sidebar.html.twig' %}
+{% endblock %}
+
+{% block main %}
+    <div class="my-20 lg:my-40 lg:ml-64 px-4">
+        <div class="w-full max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
+            <h1 class="text-2xl font-semibold text-gray-700 mb-6">{{ 'client.details'|trans({ '%fullname%': client.fullname }) }}</h1>
+
+            <table class="w-full table-auto border-collapse border border-gray-200 mb-4">
+                <tbody class="divide-y divide-gray-200">
+                    <tr class="text-sm text-gray-700 hover:bg-gray-50">
+                        <th class="p-4 border border-gray-200 bg-gray-100 text-left text-sm text-gray-600">{{ 'firstname'|trans }}</th>
+                        <td class="p-4 border border-gray-200">{{ client.firstname }}</td>
+                    </tr>
+                    <tr class="text-sm text-gray-700 hover:bg-gray-50">
+                        <th class="p-4 border border-gray-200 bg-gray-100 text-left text-sm text-gray-600">{{ 'lastname'|trans }}</th>
+                        <td class="p-4 border border-gray-200">{{ client.lastname }}</td>
+                    </tr>
+                    <tr class="text-sm text-gray-700 hover:bg-gray-50">
+                        <th class="p-4 border border-gray-200 bg-gray-100 text-left text-sm text-gray-600">{{ 'email'|trans }}</th>
+                        <td class="p-4 border border-gray-200">{{ client.email }}</td>
+                    </tr>
+                    <tr class="text-sm text-gray-700 hover:bg-gray-50">
+                        <th class="p-4 border border-gray-200 bg-gray-100 text-left text-sm text-gray-600">{{ 'client.phone_number'|trans }}</th>
+                        <td class="p-4 border border-gray-200">{{ client.phoneNumber }}</td>
+                    </tr>
+                    <tr class="text-sm text-gray-700 hover:bg-gray-50">
+                        <th class="p-4 border border-gray-200 bg-gray-100 text-left text-sm text-gray-600">{{ 'client.address'|trans }}</th>
+                        <td class="p-4 border border-gray-200">{{ client.address }}</td>
+                    </tr>
+                    <tr class="text-sm text-gray-700 hover:bg-gray-50">
+                        <th class="p-4 border border-gray-200 bg-gray-100 text-left text-sm text-gray-600">{{ 'client.created_at'|trans }}</th>
+                        <td class="p-4 border border-gray-200">{{ client.createdAt|date('Y-m-d H:i') }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="flex flex-wrap gap-3 text-center">
+                <a href="{{ path('app_client_index') }}" class="bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 focus:ring focus:ring-gray-200">
+                    {{ 'back'|trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -20,26 +20,26 @@ class UserFormType extends AbstractType
         $isEdit = $options['is_edit'] ?? false;
 
         $builder
-            ->add('lastname', TextType::class, [
-                'label' => 'register.lastname_label',
+            ->add('firstname', TextType::class, [
+                'label' => 'firstname',
                 'attr' => [
-                    'placeholder' => 'register.lastname_placeholder'
+                    'placeholder' => 'user.firstname_placeholder'
                 ]
             ])
-            ->add('firstname', TextType::class, [
-                'label' => 'register.firstname_label',
+            ->add('lastname', TextType::class, [
+                'label' => 'lastname',
                 'attr' => [
-                    'placeholder' => 'register.firstname_placeholder'
+                    'placeholder' => 'user.lastname_placeholder'
                 ]
             ])
             ->add('email', EmailType::class, [
-                'label' => 'register.email_label',
+                'label' => 'email',
                 'attr' => [
-                    'placeholder' => 'register.email_placeholder'
+                    'placeholder' => 'user.email_placeholder'
                 ]
             ])
             ->add('roles', ChoiceType::class, [
-                'label' => 'register.roles_label',
+                'label' => 'user.roles',
                 'choices' => [
                     'user.role_user' => 'ROLE_USER',
                     'user.role_admin' => 'ROLE_ADMIN',
@@ -63,9 +63,9 @@ class UserFormType extends AbstractType
         if (!$isEdit) {
             $builder
                 ->add('password', PasswordType::class, [
-                    'label' => 'register.password_label',
+                    'label' => 'user.password_label',
                     'attr' => [
-                        'placeholder' => 'register.password_placeholder'
+                        'placeholder' => 'user.password_placeholder'
                     ]
                 ]);
         }        

@@ -2,20 +2,16 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\User;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use App\Entity\User;
 
 class UserFixtures extends Fixture
 {
     private const USER_REF_PREFIX = 'user_';
-    private $userPasswordHasherInterface;
 
-    public function __construct(UserPasswordHasherInterface $userPasswordHasherInterface)
-    {
-        $this->userPasswordHasherInterface = $userPasswordHasherInterface;
-    }
+    public function __construct(private UserPasswordHasherInterface $userPasswordHasherInterface) {}
 
     public function load(ObjectManager $manager): void
     {

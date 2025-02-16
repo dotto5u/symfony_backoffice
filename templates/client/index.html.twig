@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'nav.users'|trans }}{% endblock %}
+{% block title %}{{ 'nav.clients'|trans }}{% endblock %}
 
 {% block nav %}
     {% include 'partials/_sidebar.html.twig' %}
@@ -9,7 +9,7 @@
 {% block main %}
     <div class="my-20 lg:my-40 lg:ml-64 px-4">
         <div class="w-full max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
-            <h1 class="text-2xl font-semibold text-gray-700 mb-6">{{ 'user.list'|trans }}</h1>
+            <h1 class="text-2xl font-semibold text-gray-700 mb-6">{{ 'client.list'|trans }}</h1>
 
             <div class="overflow-x-auto mb-4">
                 <table class="w-full table-auto border-collapse border border-gray-200">
@@ -18,24 +18,20 @@
                             <th class="p-4 border border-gray-200">{{ 'firstname'|trans }}</th>
                             <th class="p-4 border border-gray-200">{{ 'lastname'|trans }}</th>
                             <th class="p-4 border border-gray-200">{{ 'email'|trans }}</th>
-                            <th class="p-4 border border-gray-200">{{ 'user.roles'|trans }}</th>
+                            <th class="p-4 border border-gray-200">{{ 'client.phone_number'|trans }}</th>
                             <th class="p-4 border border-gray-200">{{ 'actions'|trans }}</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
-                        {% for user in users %}
+                        {% for client in clients %}
                             <tr class="text-sm text-gray-700 hover:bg-gray-50">
-                                <td class="p-4">{{ user.lastname }}</td>
-                                <td class="p-4">{{ user.firstname }}</td>
-                                <td class="p-4">{{ user.email }}</td>
-                                <td class="p-4">
-                                    {% for role in user.roles %}
-                                        {{ ('user.' ~ role)|lower|trans }}{% if not loop.last %}, {% endif %}
-                                    {% endfor %}
-                                </td>
+                                <td class="p-4">{{ client.lastname }}</td>
+                                <td class="p-4">{{ client.firstname }}</td>
+                                <td class="p-4">{{ client.email }}</td>
+                                <td class="p-4">{{ client.phoneNumber }}</td>
                                 <td class="flex flex-wrap justify-center gap-2 p-4 md:justify-start">
-                                    <a href="{{ path('app_user_show', { 'id': user.id }) }}" class="text-blue-600 hover:underline">{{ 'show'|trans }}</a>
-                                    <a href="{{ path('app_user_edit', { 'id': user.id }) }}" class="text-blue-600 hover:underline ml-2">{{ 'edit'|trans }}</a>
+                                    <a href="{{ path('app_client_show', { 'id': client.id }) }}" class="text-blue-600 hover:underline">{{ 'show'|trans }}</a>
+                                    <a href="{{ path('app_client_edit', { 'id': client.id }) }}" class="text-blue-600 hover:underline ml-2">{{ 'edit'|trans }}</a>
                                 </td>
                             </tr>
                         {% else %}
@@ -48,7 +44,7 @@
             </div>
 
             <div class="flex flex-wrap gap-3 text-center">
-                <a href="{{ path('app_user_new') }}" class="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700">
+                <a href="{{ path('app_client_new') }}" class="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700">
                     {{ 'new'|trans }}
                 </a>
             </div>
