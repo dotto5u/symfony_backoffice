@@ -6,6 +6,11 @@
 4. Importer les fixtures `php bin/console doctrine:fixtures:load`
 5. Construire de CSS `php bin/console tailwind:build`
 
+# Fonctionnalités
+
+**TODO**
+
+Commande pour exécuter les tests : php bin/phpunit
 
 <u>Identifiants de l'administrateur</u>
 

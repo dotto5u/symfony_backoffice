@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/client')]
-final class ClientController extends AbstractController
+class ClientController extends AbstractController
 {
     #[Route(name: 'app_client_index', methods: ['GET'])]
     public function index(ClientRepository $clientRepository): Response
