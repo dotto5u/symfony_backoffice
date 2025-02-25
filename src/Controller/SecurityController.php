@@ -30,6 +30,7 @@ class SecurityController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $password = $form->get('password')->getData();
             $user->setPassword($userPasswordHasher->hashPassword($user, $password));
+            $user->setRoles(['ROLE_USER']);
             
             $entityManager->persist($user);
             $entityManager->flush();

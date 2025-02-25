@@ -1,28 +1,85 @@
-## Utilisation
+# Symfony Backoffice
 
-1. Intaller les dépendances `composer install`
-2. Créer la base de données (changer le DATABASE_URL dans le .env si besoin) `php bin/console doctrine:database:create`
-3. Lancer les migrations `php bin/console doctrine:migration:migrate`
-4. Importer les fixtures `php bin/console doctrine:fixtures:load`
-5. Construire de CSS `php bin/console tailwind:build`
 
-# Fonctionnalités
+## Étapes d'installation
 
-**TODO**
+1. **Installation des dépendances**  
+   ```
+   composer install
+   ```
 
-Commande pour exécuter les tests : php bin/phpunit
+2. **Création de la base de données**  
+   Si besoin, modifiez la variable `DATABASE_URL` dans le fichier `.env`, puis créez la base de données :  
+   ```
+   php bin/console doctrine:database:create
+   ```
 
-<u>Identifiants de l'administrateur</u>
+3. **Exécution des migrations**   
+   ```
+   php bin/console doctrine:migration:migrate
+   ```
 
-email : admin@example.com 
-password : adminpass
+4. **Importation des fixtures**  
+   Chargez les données initiales :  
+   ```
+   php bin/console doctrine:fixtures:load
+   ```
 
-<u>Identifiants d'un gestionnaire</u>
+5. **Compilation des assets CSS**  
+   Construisez le CSS :  
+   ```
+   php bin/console tailwind:build
+   ```
 
-email : manager1@example.com  
-password : managerpass1
 
-<u>Identifiants d'un utilisateur</u>
+## Commandes personnalisées
 
-email : user1@example.com
-password : userpass1
+Créer un client :
+```
+php bin/console app:client:create
+```
+
+Importer des produits à partir d'un fichier CSV situé dans le dossier public/csv/
+```
+php bin/console app:import:csv
+```
+
+
+## Exécution des Tests
+
+Pour lancer l'ensemble des tests :
+```
+php bin/phpunit
+```
+
+
+## Fonctionnalités Implémentées
+
+- **Gestion des utilisateurs**  
+  - Lister, ajouter, modifier et supprimer des utilisateurs.
+
+- **Gestion des produits**  
+  - Importer une liste de produits via un fichier CSV.
+  - Lister, ajouter, modifier et supprimer des produits.
+  - Exporter la liste des produits.
+
+- **Gestion des clients**  
+  - Lister, ajouter, modifier et supprimer des clients.
+
+
+## Accès et Identifiants
+
+### Administrateur
+
+- **Email :** `admin@example.com`  
+- **Mot de passe :** `adminpass`
+
+### Gestionnaire
+
+- **Email :** `manager1@example.com`  
+- **Mot de passe :** `managerpass1`
+
+### Utilisateur
+
+- **Email :** `user1@example.com`  
+- **Mot de passe :** `userpass1`
